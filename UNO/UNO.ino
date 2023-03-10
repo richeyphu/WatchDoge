@@ -12,11 +12,12 @@
 // Include libraries
 #include "rickroll.h"
 
-// Declare peripheral pins
+// Declare GPIO pins
 const int PIR = 8;
+const int PIR_OUT = 4;
 const int PIEZO = 7;
 const int LED0 = LED_BUILTIN;
-const int LED1 = 10;
+const int LED1 = 12;
 
 // Declare PIR sensor state
 int pirDetect = 0;
@@ -24,8 +25,11 @@ int pirDetect = 0;
 // Setup code, run once
 void setup()
 {
+  pinMode(PIR, INPUT);
+  pinMode(PIR_OUT, OUTPUT);
   pinMode(PIEZO, OUTPUT);
   pinMode(LED0, OUTPUT);
+  pinMode(LED1, OUTPUT);
 
   digitalWrite(LED0, LOW);
   Serial.begin(115200);
@@ -46,10 +50,12 @@ void loop()
   if (pirDetect == 1)
   {
     digitalWrite(LED1, HIGH);
+    digitalWrite(PIR_OUT, HIGH);
   }
   else
   {
     digitalWrite(LED1, LOW);
+    digitalWrite(PIR_OUT, LOW);
   }
 
   // play next step in song
