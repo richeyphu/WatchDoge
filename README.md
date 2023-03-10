@@ -5,7 +5,7 @@ IoT based Rickrollable intrusion detection system using PIR sensor.
 ## Development Tools
 
 - **IDE:** 
-  - Arduino IDE
+  - [Arduino IDE](https://www.arduino.cc/en/software)
 - **µC:** 
   - Arduino Uno
   - ESP32
@@ -14,8 +14,11 @@ IoT based Rickrollable intrusion detection system using PIR sensor.
   - PIR Sensor
   - LED
 - **PaaS:**
-  - Blynk
-  - Line Notify
+  - [Blynk](https://blynk.io/)
+  - [Line Notify](https://notify-bot.line.me/)
+- **Libraries:**
+  - [Blynk](https://www.arduino.cc/reference/en/libraries/blynk/)
+  - [TridentTD_Linenotify](https://www.arduino.cc/reference/en/libraries/tridenttd_linenotify/)
 
 ---
 
