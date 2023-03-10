@@ -57,7 +57,7 @@ void loop()
   if (pirState == 1)
   {
     // Turn on LED if PIR sensor detects
-    digitalWrite(LED1, HIGH);
+    ledAlert(LED1);
     digitalWrite(PIR_OUT, HIGH);
   }
   else
@@ -80,6 +80,14 @@ void printState()
   Serial.print(pirState);
   Serial.print(", BLYNK: ");
   Serial.println(blynkState);
+}
+
+void ledAlert(int led)
+{
+  digitalWrite(led, HIGH);
+  delay(100);
+  digitalWrite(led, LOW);
+  delay(100);
 }
 
 // Play a note based on current state
