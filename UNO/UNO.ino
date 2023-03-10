@@ -28,7 +28,7 @@ void setup()
   pinMode(LED0, OUTPUT);
 
   digitalWrite(LED0, LOW);
-  Serial.begin(9600);
+  Serial.begin(115200);
   flag = true;
   a = 4; // part index
   b = 0; // song index
