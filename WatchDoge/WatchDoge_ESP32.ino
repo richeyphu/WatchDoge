@@ -1,14 +1,17 @@
-// This file was referenced from here: https://www.hackster.io/410027/rickroll-piezo-buzzer-a1cd11
+/*! 
+ * WatchDoge Arduino Sketch for ESP32 
+ * [ WiFi Gateway Module ]
+ */
 
-/*  RickRollCode
+/*
+// Check if the board is ESP32
+#ifndef ESP32
+#pragma message(THIS SKETCH IS FOR ESP32 ONLY!)
+#error Select ESP32 board.
+#endif
 
-    AUTHOR: Rowan Packard
-    rowanpackard@gmail.com
-
-    DISCLAIMER: The song "Never Gonna Give You Up" by Rick Astley
-    is not the creative property of the author. This code simply
-    plays a Piezo buzzer rendition of the song.
-*/
+// Include libraries
+#include "conf.h"
 
 #define a3f 208  // 208 Hz
 #define b3f 233  // 233 Hz
@@ -29,8 +32,11 @@
 
 #define rest -1
 
-// int piezo = 7;  // Connect your piezo buzzer to this pin or change it to match your circuit!
-// int led = LED_BUILTIN;
+const int PIR_PIN = 8;
+int pirDetect = 0;
+
+int piezo = 7;  // Connect your piezo buzzer to this pin or change it to match your circuit!
+int led = LED_BUILTIN;
 
 volatile int beatlength = 100;  // determines tempo
 float beatseparationconstant = 0.3;
@@ -99,7 +105,6 @@ const char* lyrics_chorus[] = { "Never ", "", "gonna ", "", "give ", "you ", "up
                                 "Never ", "", "gonna ", "", "say ", "goodbye ", "", "", "\r\n",
                                 "Never ", "", "gonna ", "", "tell ", "a ", "lie ", "", "", "and ", "hurt ", "you\r\n" };
 
-/*
 void setup() {
   pinMode(piezo, OUTPUT);
   pinMode(led, OUTPUT);
@@ -113,7 +118,15 @@ void setup() {
 }
 
 void loop() {
+  pirDetect = digitalRead(PIR_PIN);
+  Serial.print(" - sensor ");
+  Serial.println(pirDetect);
 
+  if (pirDetect == 1) {
+    digitalWrite(10, HIGH);
+  } else {
+    digitalWrite(10, LOW);
+  }
 
   // play next step in song
   if (flag == true) {
@@ -122,6 +135,9 @@ void loop() {
 }
 
 void play() {
+  if (pirDetect == 0) {
+    return;
+  }
   int notelength;
   if (a == 1 || a == 2) {
     // intro
