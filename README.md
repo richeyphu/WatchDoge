@@ -1,6 +1,7 @@
 # WatchDoge
 
-IoT based [Rickrollable](https://en.wikipedia.org/wiki/Rickrolling) intrusion detection system using PIR sensor.
+IoT based [Rickrollable](https://en.wikipedia.org/wiki/Rickrolling) intrusion detection system using PIR sensor. 
+Remote control with [Blynk](https://blynk.io/) and receive notification via [Line Notify](https://notify-bot.line.me/).
 
 ## Development Tools
 
@@ -31,4 +32,4 @@ Arduino sketches of **WatchDoge** are separated into two modules:
 
 [![cover](https://user-images.githubusercontent.com/55230837/224076690-475ae0b3-3424-4229-a0d7-5e5be3477d0d.png)](https://youtu.be/dQw4w9WgXcQ)
 
-> The final project of `Internet of Things` (ITE-433) course.
+> The final project of `ITE-433: Internet of Things` course.
