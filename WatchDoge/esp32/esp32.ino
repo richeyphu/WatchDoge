@@ -1,6 +1,6 @@
-/*! 
- * WatchDoge Arduino Sketch for ESP32 
- * [ WiFi Gateway Module ]
+/*!  
+ * [ WatchDoge - WiFi Gateway Module ]
+ * A Arduino Sketch for ESP32
  */
 
 // Check if the board is ESP32

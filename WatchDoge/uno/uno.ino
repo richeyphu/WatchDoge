@@ -1,6 +1,6 @@
 /*! 
- * WatchDoge Arduino Sketch for UNO 
- * [ Dedicated Rickrolling Module ]
+ * [ WatchDoge - Dedicated Rickrolling Module ]
+ * A Arduino Sketch for Uno
  */
 
 // Check if the board is Arduino Uno
