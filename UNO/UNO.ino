@@ -6,7 +6,7 @@
 // Check if the board is Arduino Uno
 #ifndef ARDUINO_AVR_UNO
 #pragma message(THIS SKETCH IS FOR ARDUINO UNO ONLY !)
-#error Select Arduino Uno board.
+#error Please select Arduino Uno board.
 #endif
 
 // Include libraries
