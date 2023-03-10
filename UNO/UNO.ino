@@ -18,18 +18,22 @@ const int PIR_OUT = 4;
 const int PIEZO = 7;
 const int LED0 = LED_BUILTIN;
 const int LED1 = 12;
+const int BLYNK_IN = 2;
 
-// Declare PIR sensor state
-int pirDetect = 0;
+// Declare state variables
+int pirState = 0;
+int blynkState = 0;
 
 // Setup code, run once
 void setup()
 {
+  // Set GPIO pin modes
   pinMode(PIR, INPUT);
   pinMode(PIR_OUT, OUTPUT);
   pinMode(PIEZO, OUTPUT);
   pinMode(LED0, OUTPUT);
   pinMode(LED1, OUTPUT);
+  pinMode(BLYNK_IN, INPUT);
 
   digitalWrite(LED0, LOW);
   Serial.begin(115200);
@@ -42,34 +46,50 @@ void setup()
 // Main code, run repeatedly
 void loop()
 {
-  pirDetect = digitalRead(PIR);
-  Serial.print(" - sensor ");
-  Serial.println(pirDetect);
+  // Get PIR sensor state
+  pirState = digitalRead(PIR);
+  // Get Blynk state
+  blynkState = digitalRead(BLYNK_IN);
 
-  // Turn on LED1 if PIR sensor detects
-  if (pirDetect == 1)
+  printState();
+
+  // Check if PIR sensor is detecting
+  if (pirState == 1)
   {
+    // Turn on LED if PIR sensor detects
     digitalWrite(LED1, HIGH);
     digitalWrite(PIR_OUT, HIGH);
   }
   else
   {
+    // Turn off LED if PIR sensor does not detect
     digitalWrite(LED1, LOW);
     digitalWrite(PIR_OUT, LOW);
   }
 
-  // play next step in song
+  // Play next step in song
   if (flag == true)
   {
     play();
   }
 }
 
+void printState()
+{
+  Serial.print("- PIR: ");
+  Serial.print(pirState);
+  Serial.print(", BLYNK: ");
+  Serial.println(blynkState);
+}
+
 // Play a note based on current state
 void play()
 {
   // If PIR sensor is not detecting, stop playing song
-  if (pirDetect == 0)
+  if (pirState == 0 || blynkState == 1)
+  {
+    return;
+  }
   {
     return;
   }
