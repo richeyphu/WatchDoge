@@ -15,7 +15,8 @@
 // Declare peripheral pins
 const int PIR = 8;
 const int PIEZO = 7;
-const int LED = LED_BUILTIN;
+const int LED0 = LED_BUILTIN;
+const int LED1 = 10;
 
 // Declare PIR sensor state
 int pirDetect = 0;
@@ -23,9 +24,9 @@ int pirDetect = 0;
 // Setup code, run once
 void setup() {
   pinMode(PIEZO, OUTPUT);
-  pinMode(LED, OUTPUT);
+  pinMode(LED0, OUTPUT);
 
-  digitalWrite(LED, LOW);
+  digitalWrite(LED0, LOW);
   Serial.begin(9600);
   flag = true;
   a = 4;  // part index
@@ -39,10 +40,11 @@ void loop() {
   Serial.print(" - sensor ");
   Serial.println(pirDetect);
 
+  // Turn on LED1 if PIR sensor detects
   if (pirDetect == 1) {
-    digitalWrite(10, HIGH);
+    digitalWrite(LED1, HIGH);
   } else {
-    digitalWrite(10, LOW);
+    digitalWrite(LED1, LOW);
   }
 
   // play next step in song
@@ -53,7 +55,7 @@ void loop() {
 
 // Play a note based on current state
 void play() {
-  // If PIR not detecting, stop playing song
+  // If PIR sensor is not detecting, stop playing song
   if (pirDetect == 0) {
     return;
   }
@@ -63,7 +65,7 @@ void play() {
     // intro
     notelength = beatlength * song1_intro_rhythmn[b];
     if (song1_intro_melody[b] > 0) {
-      digitalWrite(LED, HIGH);
+      digitalWrite(LED0, HIGH);
       tone(PIEZO, song1_intro_melody[b], notelength);
     }
     b++;
@@ -76,7 +78,7 @@ void play() {
     // verse
     notelength = beatlength * 2 * song1_verse1_rhythmn[b];
     if (song1_verse1_melody[b] > 0) {
-      digitalWrite(LED, HIGH);
+      digitalWrite(LED0, HIGH);
       Serial.print(lyrics_verse1[c]);
       tone(PIEZO, song1_verse1_melody[b], notelength);
       c++;
@@ -91,7 +93,7 @@ void play() {
     // chorus
     notelength = beatlength * song1_chorus_rhythmn[b];
     if (song1_chorus_melody[b] > 0) {
-      digitalWrite(LED, HIGH);
+      digitalWrite(LED0, HIGH);
       Serial.print(lyrics_chorus[c]);
       tone(PIEZO, song1_chorus_melody[b], notelength);
       c++;
@@ -106,7 +108,7 @@ void play() {
   }
   delay(notelength);
   noTone(PIEZO);
-  digitalWrite(LED, LOW);
+  digitalWrite(LED0, LOW);
   delay(notelength * beatseparationconstant);
   if (a == 7) {  // loop back around to beginning of song
     a = 1;
