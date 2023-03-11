@@ -1,6 +1,7 @@
 /*!
  * [ WatchDoge - Dedicated Rickrolling Module ]
- * A Arduino Sketch for Uno
+ * Copyright(c) 2023 Phurit D., Pongpanot H. and Thitiwat T.
+ * MIT Licensed
  */
 
 // Check if the board is Arduino Uno

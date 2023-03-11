@@ -1,6 +1,7 @@
 /*!
  * [ WatchDoge - WiFi Gateway Module ]
- * A Arduino Sketch for ESP32
+ * Copyright(c) 2023 Phurit D., Pongpanot H. and Thitiwat T.
+ * MIT Licensed
  */
 
 // Check if the board is ESP32
