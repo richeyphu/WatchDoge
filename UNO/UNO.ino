@@ -93,12 +93,10 @@ void ledAlert(int led)
 // Play a note based on current state
 void play()
 {
-  // If PIR sensor is not detecting, stop playing song
+  // If PIR sensor is not detecting or getting Blynk signal
   if (pirState == 0 || blynkState == 1)
   {
-    return;
-  }
-  {
+    // Stop playing the song
     return;
   }
 
