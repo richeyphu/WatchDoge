@@ -1,7 +1,7 @@
-/*! 
+/*!
  * Project Environment Variables
- * 
- * REMARK: This is a template file. Please copy this file 
+ *
+ * REMARK: This is a template file. Please copy this file
  * to `conf.h` and fill in the credentials before compiling.
  */
 
