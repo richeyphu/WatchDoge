@@ -90,9 +90,11 @@ BLYNK_WRITE(V0)
   if (param.asInt())
   {
     blynkState = 1;
+    digitalWrite(BLYNK_OUT, LOW);
   }
   else
   {
     blynkState = 0;
+    digitalWrite(BLYNK_OUT, HIGH);
   }
 }
