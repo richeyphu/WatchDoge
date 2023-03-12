@@ -4,9 +4,9 @@ IoT based [Rickrollable](https://en.wikipedia.org/wiki/Rickrolling) intrusion de
 
 ## Features
 
-- **Rickrollable** - Rickroll the intruder with a piezo buzzer.
-- **Remote Control** - Control the device remotely with [Blynk](https://blynk.io/).
-- **Notification** - Get notified via [Line](https://notify-bot.line.me/).
+- [x] **Rickrollable** – Rickroll the intruder with a piezo buzzer.
+- [x] **Remote Control** – Control the device remotely with [Blynk](https://blynk.io/).
+- [x] **Notification** – Get notified via [Line](https://notify-bot.line.me/).
 
 ## Development Tools
 
@@ -30,8 +30,8 @@ IoT based [Rickrollable](https://en.wikipedia.org/wiki/Rickrolling) intrusion de
 
 Arduino sketches of **WatchDoge** are separated into two modules:
 
-- [`UNO`](UNO) - Dedicated Rickrolling Module
-- [`ESP32`](ESP32) - WiFi Gateway Module
+- [`UNO`](UNO) – Dedicated Rickrolling Module
+- [`ESP32`](ESP32) – WiFi Gateway Module
 
 ## License
 
