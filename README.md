@@ -4,9 +4,9 @@ IoT based [Rickrollable](https://en.wikipedia.org/wiki/Rickrolling) intrusion de
 
 ## Features
 
-- [x] **Rickrollable** – Rickroll the intruder with a piezo buzzer.
-- [x] **Remote Control** – Control the device remotely with [Blynk](https://blynk.io/).
-- [x] **Notification** – Get notified via [Line](https://notify-bot.line.me/).
+- ✅ **Rickrollable** – Rickroll the intruder with a piezo buzzer.
+- ✅ **Remote Control** – Control the device remotely with [Blynk](https://blynk.io/).
+- ✅ **Notification** – Get notified via [Line](https://notify-bot.line.me/).
 
 ## Development Tools
 
