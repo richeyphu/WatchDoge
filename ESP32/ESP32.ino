@@ -110,7 +110,7 @@ BLYNK_WRITE(V0)
   }
 }
 
-void connectionstatus()
+void connectionStatus()
 {
   if ((WiFi.status() != WL_CONNECTED))
   {
