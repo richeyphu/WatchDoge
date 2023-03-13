@@ -56,6 +56,8 @@ void loop()
   Blynk.run();
   timer.run();
 
+  connectionStatus();
+
   // Get PIR sensor state
   pirState = digitalRead(PIR_IN);
 
@@ -105,5 +107,36 @@ BLYNK_WRITE(V0)
   {
     blynkState = 0;
     digitalWrite(BLYNK_OUT, HIGH);
+  }
+}
+
+void connectionstatus()
+{
+  if ((WiFi.status() != WL_CONNECTED))
+  {
+    Serial.println("Reconnecting to WiFi...");
+    WiFi.disconnect();
+    WiFi.begin(SSID, PASS);
+    while (WiFi.status() != WL_CONNECTED)
+    {
+      delay(100);
+      Serial.print(".");
+    }
+    Serial.println();
+    Serial.println(WiFi.localIP());
+  }
+  else
+  {
+    Serial.println("WiFi OK");
+  }
+
+  if (!Blynk.connected())
+  {
+    Serial.println("Lost Blynk server connection");
+    Blynk.connect();
+  }
+  else
+  {
+    Serial.println("Blynk OK");
   }
 }
