@@ -41,6 +41,8 @@ void setup()
   Blynk.begin(AUTH, SSID, PASS);
   timer.setInterval(1000L, timerEvent);
 
+  Blynk.virtualRead(V0);
+
   // Set Line Notify token
   LINE.setToken(LINE_TOKEN);
 
@@ -85,7 +87,14 @@ void printState()
   Serial.println(blynkState);
 }
 
+// Checks if there is a connection to Blynk.Cloud
+BLYNK_CONNECTED()
+{
+  Blynk.syncVirtual(V0); // Get the latest value
+}
+
 // Blynk virtual pin event
+// Listening when something is written to V0
 BLYNK_WRITE(V0)
 {
   if (param.asInt())
