@@ -18,7 +18,7 @@ const int PIR = 8;
 const int PIR_OUT = 4;
 const int PIEZO = 7;
 const int LED0 = LED_BUILTIN;
-const int LED1 = 12;
+const int LED1 = 13;
 const int BLYNK_IN = 2;
 
 // Declare state variables
@@ -86,9 +86,9 @@ void printState()
 void ledAlert(int led)
 {
   digitalWrite(led, HIGH);
-  delay(100);
-  digitalWrite(led, LOW);
-  delay(100);
+  //delay(100);
+  //digitalWrite(led, LOW);
+  //delay(100);
 }
 
 // Play a note based on current state

@@ -35,7 +35,7 @@ BlynkTimer timer;
 void setup()
 {
   // Start serial monitor
-  Serial.begin(115200);
+  Serial.begin(9600);
 
   // Start Blynk
   Blynk.begin(AUTH, SSID, PASS);
