@@ -123,20 +123,21 @@ void connectionStatus()
       Serial.print(".");
     }
     Serial.println();
+    Serial.print("WiFi connected, IP: ");
     Serial.println(WiFi.localIP());
   }
   else
   {
-    Serial.println("WiFi OK");
+    Serial.println("WiFi: OK");
   }
 
   if (!Blynk.connected())
   {
-    Serial.println("Lost Blynk server connection");
+    Serial.println("Blynk: Reconnecting...");
     Blynk.connect();
   }
   else
   {
-    Serial.println("Blynk OK");
+    Serial.println("Blynk: OK");
   }
 }
