@@ -29,7 +29,7 @@ int pirState = 0;
 int blynkState = 0;
 
 // Declare objects
-BlynkTimer timer;
+// BlynkTimer timer;
 
 // Setup code, run once
 void setup()
@@ -39,7 +39,7 @@ void setup()
 
   // Start Blynk
   Blynk.begin(AUTH, SSID, PASS);
-  timer.setInterval(1000L, timerEvent);
+  // timer.setInterval(1000L, timerEvent);
 
   // Set Line Notify token
   LINE.setToken(LINE_TOKEN);
@@ -75,9 +75,9 @@ void loop()
 }
 
 // Blynk timer event
-void timerEvent()
-{
-}
+// void timerEvent()
+// {
+// }
 
 void printState()
 {
@@ -110,6 +110,7 @@ BLYNK_WRITE(V0)
   }
 }
 
+// Checks if there is a connection to WiFi and Blynk.Cloud
 void connectionStatus()
 {
   if ((WiFi.status() != WL_CONNECTED))
