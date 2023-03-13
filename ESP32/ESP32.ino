@@ -41,8 +41,6 @@ void setup()
   Blynk.begin(AUTH, SSID, PASS);
   timer.setInterval(1000L, timerEvent);
 
-  Blynk.virtualRead(V0);
-
   // Set Line Notify token
   LINE.setToken(LINE_TOKEN);
 
@@ -97,7 +95,8 @@ BLYNK_CONNECTED()
 // Listening when something is written to V0
 BLYNK_WRITE(V0)
 {
-  if (param.asInt())
+  int pinValue = param.asInt();
+  if (pinValue == 1)
   {
     blynkState = 1;
     digitalWrite(BLYNK_OUT, LOW);
