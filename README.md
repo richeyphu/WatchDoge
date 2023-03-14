@@ -13,7 +13,7 @@ IoT based [Rickrollable](https://en.wikipedia.org/wiki/Rickrolling) intrusion de
 - **IDE:**
   - [Arduino IDE](https://www.arduino.cc/en/software)
 - **µC:**
-  - Arduino Uno
+  - UNO R3
   - ESP32
 - **Peripherals:**
   - Piezo Buzzer
