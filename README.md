@@ -15,7 +15,7 @@ IoT based [Rickrollable](https://en.wikipedia.org/wiki/Rickrolling) intrusion de
 - **µC:**
   - UNO R3
   - ESP32
-- **Peripherals:**
+- **Modules:**
   - Piezo Buzzer
   - PIR Sensor
   - LED
