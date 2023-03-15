@@ -35,7 +35,7 @@ int blynkState = 0;
 void setup()
 {
   // Start serial monitor
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   // Start Blynk
   Blynk.begin(AUTH, SSID, PASS);
